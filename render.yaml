@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: my-django-app
+    env: python
+    plan: free  # Choose your Render plan (free or paid)
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+    startCommand: "gunicorn mypwebsite.wsgi:application --bind 0.0.0.0:8000"
